@@ -6,7 +6,8 @@ on:
   pull_request:
     branches: [ master ]
 
-build-and-deploy:
+jobs:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'  
@@ -21,4 +22,3 @@ build-and-deploy:
     - run: |
       docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/devopsoh/api-user-java:${{ github.run_number }} -f apis/user-java/Dockerfile
       docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/devopsoh/api-user-java:${{ github.run_number }}
-      
