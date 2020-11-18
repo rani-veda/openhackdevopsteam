@@ -25,11 +25,13 @@ jobs:
       run: mvn -B package --file apis/user-java/pom.xml
     - name: Test
       run: mvn test -f apis/user-java/pom.xml
-    - name: Package
-      run: mkdir apis/user-java/staging
-      run: cd openhackdevopsteam/apis/user-java/target/surefire 
-      run: cp *.jar apis/user-java/staging/
+   
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+      - run: mvn -B package --file apis/user-java/pom.xml
+      - run: mkdir apis/user-java/staging && cp apis/user-java/target/*.jar apis/user-java/staging
       - uses: actions/upload-artifact@v2
-    with:
-      name: Package
-      path: apis/user-java/staging
+        with:
+          name: Package
+          path: apis/user-java/staging
