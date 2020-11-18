@@ -32,7 +32,8 @@ jobs:
             dep ensure
         fi
     - name: Build
-      run: go install -v apis/trips/main.go
+      working-directory: apis/trips
+      run: go install -v main.go
 
     - name: Test
       run: go test -v apis/trips/tests
