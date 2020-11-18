@@ -8,20 +8,20 @@ on:
 
 jobs:
 
-  build:
+  build-and-deploy:
 
     runs-on: ubuntu-latest
 
     steps:
     - name: 'Checkout GitHub Action'  
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
     
-        - name: 'Build and push image'
-          uses: azure/docker-login@v1
-          with:
-            login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-            username: ${{ secrets.REGISTRY_USERNAME }}
-            password: ${{ secrets.REGISTRY_PASSWORD }}
-        - run: |
-            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/api-user-java:${{ github.run_number }}
-            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/api-user-java:${{ github.run_number }}
+    - name: 'Build and push image'
+      uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+      - run: |
+          docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/api-user-java:${{ github.run_number }}
+          docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/api-user-java:${{ github.run_number }}
