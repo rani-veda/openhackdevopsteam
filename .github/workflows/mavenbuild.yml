@@ -28,7 +28,7 @@ jobs:
     - name: Package
       run: mkdir apis/user-java/staging
       run: cd openhackdevopsteam/apis/user-java/target/surefire 
-      run: cp *.jar apis/user-java/staging
+      run: cp *.jar apis/user-java/staging/
       - uses: actions/upload-artifact@v2
     with:
       name: Package
