@@ -32,7 +32,7 @@ jobs:
             dep ensure
         fi
     - name: Build
-      run: go build -v apis/trips/main.go
+      run: go run -v apis/trips/main.go
 
     - name: Test
       run: go test -v apis/trips/tests
