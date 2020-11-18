@@ -25,4 +25,4 @@ jobs:
       run: mvn -B package --file apis/user-java/pom.xml
     - name: Test
       paths: apis/user-java
-      run: mvn test 
+      run: mvn test -f apis/user-java/pom.xml
