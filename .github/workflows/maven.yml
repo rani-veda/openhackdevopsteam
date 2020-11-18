@@ -10,8 +10,6 @@ on:
     branches: [ master ]
     paths: apis/user-java
 
-env:
-
 jobs:
   build:
 
