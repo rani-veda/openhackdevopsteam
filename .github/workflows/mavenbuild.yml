@@ -11,6 +11,7 @@ jobs:
   build-and-deploy:
 
     runs-on: ubuntu-latest
+    working-directory: apis/user-java 
 
     steps:
     - name: 'Checkout GitHub Action'  
