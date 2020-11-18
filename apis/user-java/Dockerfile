@@ -1,5 +1,6 @@
 # First stage to build the application
 FROM maven:3.5.4-jdk-11-slim AS build-env
+WORKDIR /go/src/github.com/Azure-Samples/openhack-devops-team/apis/user-java
 ADD ./pom.xml pom.xml
 ADD ./src src/
 RUN mvn clean package
