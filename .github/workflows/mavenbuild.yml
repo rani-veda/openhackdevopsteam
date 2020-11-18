@@ -21,7 +21,7 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
-    - name: 'Build and push image'
+    - name: 'Build and Push image'
       uses: azure/docker-login@v1
       with:
         login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
@@ -31,7 +31,8 @@ jobs:
         docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/devopsoh/api-user-java:${{ github.run_number }} -f apis/user-java/Dockerfile
         docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/devopsoh/api-user-java:${{ github.run_number }}
 
-    - uses: azure/webapps-deploy@v2
+    - name: 'Deploy to Web App'
+      uses: azure/webapps-deploy@v2
       with:
         app-name: 'openhack06u2z0e9userjava'
         images: '${{ secrets.REGISTRY_LOGIN_SERVER }}/devopsoh/api-user-java:${{ github.run_number }}'
