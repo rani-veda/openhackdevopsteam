@@ -26,7 +26,7 @@ jobs:
         docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/devopsoh/api-user-java:${{ github.run_number }} -f apis/user-java/Dockerfile
         docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/devopsoh/api-user-java:${{ github.run_number }}
 
-  task: AzureWebAppContainer@1
+  task: AzureWebAppContainer@v1
         inputs:
           azureSubscription: '1a7a95d7-122f-4920-a3cb-b47515acefc9'
           appName: 'openhack06u2z0e9userjava'
