@@ -5,7 +5,7 @@ ADD apis/user-java/pom.xml pom.xml
 ADD apis/user-java/src src/
 RUN mvn clean package
 
-# build runtime image
+# build runtime_ image
 FROM openjdk:11-jre-slim
 
 EXPOSE 8080
