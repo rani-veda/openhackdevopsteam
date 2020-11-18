@@ -11,7 +11,7 @@ jobs:
   build-and-deploy:
 
     runs-on: ubuntu-latest
-
+    working-directory: apis/user-java
     steps:
     - name: 'Checkout GitHub Action'  
       uses: actions/checkout@v2
@@ -23,6 +23,5 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - run: |
-        working-directory: apis/user-java
         docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/devopsoh/api-user-java:${{ github.run_number }} -f apis/user-java/Dockerfile
         docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/devopsoh/api-user-java:${{ github.run_number }}
