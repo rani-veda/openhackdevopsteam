@@ -11,17 +11,17 @@ jobs:
   build-and-deploy:
 
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: 'Checkout GitHub Action'  
       uses: actions/checkout@v2
     
-    - name: 'Build and push image'  
+    - name: 'Build and push image'
       uses: azure/docker-login@v1
       with:
         login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
-     - run: |
+    - run: |
         docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/devopsoh/api-user-java:${{ github.run_number }} -f apis/user-java/Dockerfile
         docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/devopsoh/api-user-java:${{ github.run_number }}
