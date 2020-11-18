@@ -27,7 +27,7 @@ jobs:
       run: mvn test -f apis/user-java/pom.xml
     - name: Package
       run: mkdir apis/user-java/staging 
-      run: cp apis/user-java/target/*/*.jar apis/user-java/staging
+      run: cp apis/user-java/target/surefire/*.jar apis/user-java/staging
       - uses: actions/upload-artifact@v2
     with:
       name: Package
