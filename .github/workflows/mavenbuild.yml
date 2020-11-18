@@ -22,4 +22,4 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - run: 
       working-directory: apis/user-java
-        docker build -t test .
+      docker build -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/api-user-java:${{ github.run_number }} --build-arg build_version=${{ github.run_number}} .
