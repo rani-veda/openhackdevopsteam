@@ -21,5 +21,4 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - run: 
-        docker build -t test -f apis/user-java/Dockerfile .
-        docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/api-user-java:${{ github.run_number }}
+        docker build -t test -f apis/user-java/Dockerfile .       
