@@ -2,7 +2,7 @@
 FROM maven:3.5.4-jdk-11-slim AS build-env
 
 ADD apis/user-java/pom.xml pom.xml
-ADD ./src src/
+ADD apis/user-java/src src/
 RUN mvn clean package
 
 # build runtime image
