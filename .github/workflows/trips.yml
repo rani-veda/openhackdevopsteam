@@ -36,5 +36,5 @@ jobs:
       run: go install -v main.go
 
     - name: Test
-      working-directory: apis/trips
-      run: go test -v tests
+      working-directory: apis/trips/tests
+      run: go test -v healthroute_test.go
