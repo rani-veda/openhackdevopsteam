@@ -21,4 +21,5 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - run: 
-        docker build -t test -f apis/user-java/Dockerfile .       
+      working-directory: apis/user-java
+        docker build -t test .
