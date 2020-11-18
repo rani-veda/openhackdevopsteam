@@ -34,7 +34,7 @@ jobs:
     - name: 'Deploy to Web App'
       uses: azure/webapps-deploy@v2
       with:
-        slot-name: 'openhack06u2z0e9userjava-staging'
+        app-name: 'openhack06u2z0e9userjava'
         images: '${{ secrets.REGISTRY_LOGIN_SERVER }}/devopsoh/api-user-java:${{ github.run_number }}'
         
 
