@@ -8,7 +8,7 @@ RUN mvn clean package
 # build runtime_ image
 FROM openjdk:11-jre-slim
 
-EXPOSE 80
+EXPOSE 8080
 
 ENV SQL_USER="demousersa" \
 SQL_PASSWORD="demo@pass123" \
