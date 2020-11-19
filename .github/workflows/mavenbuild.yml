@@ -37,5 +37,7 @@ jobs:
         app-name: 'openhack06u2z0e9userjava'
         slot-name: 'staging'
         images: '${{ secrets.REGISTRY_LOGIN_SERVER }}/devopsoh/api-user-java:${{ github.run_number }}'
-        
+
+    - name: 'Swap with preview'
+      run: az webapp deployment slot swap -g openhack06u2z0e9rg -n openhack06u2z0e9userjava --slot staging --target-slot production  
 
